@@ -1,16 +1,31 @@
-const shareButton = document.querySelector('#share-button');
+const shareButton = document.querySelector('.share-button');
+const shareDialog = document.querySelector('.share-dialog');
+const closeButton = document.querySelector('.close-button');
+
+const openFallbackDialog = () => {
+  shareDialog.classList.add('fallback');
+};
+
+const closeFallbackDialog = () => {
+  shareDialog.classList.remove('fallback');
+};
 
 // TODO: update these values
-const title = 'Test title';
-const text = 'Test text should be part of the message!';
-const url = document.location.href;
+const data = {
+  title: 'Test Title',
+  text: 'Test text should be part of the message!',
+  url: window.location.href,
+};
 
-shareButton.addEventListener('click', async () => {
-  const data = { title, text, url };
-
-  if (navigator.share) {
+const nativeShare = async () => {
+  try {
     await navigator.share(data);
-  } else {
-    alert('Not supported');
+    console.log('Thanks for sharing!');
+  } catch (error) {
+    console.log('User aborted sharing');
   }
-});
+};
+
+const openDialog = navigator.share ? nativeShare : openFallbackDialog;
+shareButton.addEventListener('click', openDialog);
+closeButton.addEventListener('click', closeFallbackDialog);
