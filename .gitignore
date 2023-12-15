@@ -5,3 +5,12 @@ yarn-debug.log*
 yarn-error.log*
 .env
 .DS_Store
+
+node_modules
+package.json
+package-lock.json
+vite.config.js
+certificates
+
+# TODO: remove if server is implemented
+server
