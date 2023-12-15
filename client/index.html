@@ -3,9 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PWA - Home</title>
+    <link rel="stylesheet" href="./assets/css/products.css" />
+    <title>PWA - Products</title>
   </head>
   <body>
-    Home
+    <template id="card-template">
+      <div class="card">
+        <img class="card-image" src="" alt="Card Image" />
+        <div class="card-content">
+          <h5 class="card-title"></h5>
+          <p class="card-description"></p>
+        </div>
+      </div>
+    </template>
+
+    <main id="card-container"></main>
+
+    <script src="./scripts/products.js"></script>
   </body>
 </html>
