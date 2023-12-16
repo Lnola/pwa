@@ -21,3 +21,12 @@ self.addEventListener('install', event => {
     })(),
   );
 });
+
+self.addEventListener('fetch', event => {
+  event.respondWith(
+    (async () => {
+      const cachedResponse = await caches.match(event.request);
+      return cachedResponse || fetch(event.request);
+    })(),
+  );
+});
