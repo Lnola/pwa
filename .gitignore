@@ -11,6 +11,3 @@ package.json
 package-lock.json
 vite.config.js
 certificates
-
-# TODO: remove if server is implemented
-server
