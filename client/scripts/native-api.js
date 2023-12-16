@@ -14,7 +14,7 @@ const closeFallbackDialog = () => {
 const data = {
   title: 'Test Title',
   text: 'Test text should be part of the message!',
-  url: window.location.href,
+  url: window.location.origin,
 };
 
 const nativeShare = async () => {
