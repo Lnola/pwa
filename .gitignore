@@ -11,3 +11,5 @@ package.json
 package-lock.json
 vite.config.js
 certificates
+
+favicon.ico
