@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
     <link rel="stylesheet" href="./assets/css/layout.css" />
-    <link rel="stylesheet" href="./assets/css/products.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </head>
   <body>
@@ -35,20 +34,24 @@
       </li>
     </ul>
 
-    <template id="card-template">
-      <div class="card">
-        <img class="card-image" src="" alt="Card Image" />
-        <div class="card-content">
-          <h5 class="card-title"></h5>
-          <p class="card-description"></p>
-          <p class="card-price"></p>
-        </div>
+    <!-- content -->
+    <main class="center">
+      <div class="container grey-text">
+        <h5 class="center heading">Contact Us</h5>
+        <p>
+          This page is a basic contact form created to demonstrate the dynamic caching feature in action. As you use
+          this page, dynamic caching efficiently manages data, showcasing how it enhances user experience and page
+          responsiveness without the need for real-time data processing and refetching existing files.
+        </p>
+        <div class="divider"></div>
+        <h6>Find us at:</h6>
+        <ul>
+          <li>Unska ulica 3</li>
+          <li>Zagreb, Croatia</li>
+        </ul>
       </div>
-    </template>
-
-    <main id="card-container"></main>
+    </main>
 
     <script src="./scripts/layout.js"></script>
-    <script src="./scripts/products.js"></script>
   </body>
 </html>
