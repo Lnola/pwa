@@ -1,4 +1,5 @@
-const STATIC_CACHE_NAME = 'site-static-v1';
+const STATIC_CACHE_NAME = 'site-static-v2';
+const DYNAMIC_CACHE_NAME = 'site-dynamic-v2';
 const STATIC_ASSETS = [
   '/client',
   '/client/index.html',
@@ -26,7 +27,9 @@ self.addEventListener('activate', event => {
   event.waitUntil(
     (async () => {
       const keys = await caches.keys();
-      return Promise.all(keys.filter(key => key !== STATIC_CACHE_NAME).map(key => caches.delete(key)));
+      return Promise.all(
+        keys.filter(key => key !== STATIC_CACHE_NAME && key !== DYNAMIC_CACHE_NAME).map(key => caches.delete(key)),
+      );
     })(),
   );
 });
@@ -35,7 +38,11 @@ self.addEventListener('fetch', event => {
   event.respondWith(
     (async () => {
       const cachedResponse = await caches.match(event.request);
-      return cachedResponse || fetch(event.request);
+      if (cachedResponse) return cachedResponse;
+      const fetchedResponse = await fetch(event.request);
+      const cache = await caches.open(DYNAMIC_CACHE_NAME);
+      cache.put(event.request.url, fetchedResponse.clone());
+      return fetchedResponse;
     })(),
   );
 });
