@@ -14,3 +14,7 @@ nav .sidenav-trigger {
 button:focus {
   background-color: transparent;
 }
+
+.heading {
+  margin-bottom: 2.5rem;
+}
