@@ -22,6 +22,15 @@ self.addEventListener('install', event => {
   );
 });
 
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    (async () => {
+      const keys = await caches.keys();
+      return Promise.all(keys.filter(key => key !== STATIC_CACHE_NAME).map(key => caches.delete(key)));
+    })(),
+  );
+});
+
 self.addEventListener('fetch', event => {
   event.respondWith(
     (async () => {
