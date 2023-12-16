@@ -47,6 +47,7 @@ self.addEventListener('fetch', event => {
         cache.put(event.request.url, fetchedResponse.clone());
         return fetchedResponse;
       } catch (error) {
+        if (event.request.url.indexOf('.html') < 0) return;
         return await caches.match(FALLBACK_PAGE);
       }
     })(),
