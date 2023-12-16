@@ -10,3 +10,7 @@ nav .sidenav-trigger {
   margin: 0;
   cursor: pointer;
 }
+
+button:focus {
+  background-color: transparent;
+}
