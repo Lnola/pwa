@@ -23,11 +23,19 @@ self.addEventListener('install', event => {
       return cache.addAll(STATIC_ASSETS);
     })(),
   );
+
+  (async () => {
+    const products = await fetch('https://fakestoreapi.com/products');
+    const cache = await caches.open(DYNAMIC_CACHE_NAME);
+    cache.put('/products', products);
+  })();
 });
 
 self.addEventListener('activate', event => {
   event.waitUntil(
     (async () => {
+      self.clients.claim();
+
       const keys = await caches.keys();
       return Promise.all(
         keys.filter(key => key !== STATIC_CACHE_NAME && key !== DYNAMIC_CACHE_NAME).map(key => caches.delete(key)),
