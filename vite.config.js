@@ -1,13 +1,13 @@
-import * as fs from 'fs';
+import { defineConfig } from 'vite';
+import mkcert from 'vite-plugin-mkcert';
 
-export default {
+export default defineConfig({
+  plugins: [mkcert()],
   root: './client',
   server: {
     port: 3000,
-    // TODO: configure https on production
-    https: {
-      key: fs.readFileSync('./certificates/my-key.pem'),
-      cert: fs.readFileSync('./certificates/my-cert.pem'),
-    },
   },
-};
+  build: {
+    assetsInlineLimit: 0,
+  },
+});
