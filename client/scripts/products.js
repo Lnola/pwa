@@ -15,9 +15,13 @@ document.addEventListener('DOMContentLoaded', async () => {
   const template = document.getElementById('card-template').content;
   const container = document.getElementById('card-container');
 
-  const products = await getProducts();
-  products.forEach(product => {
-    const clone = createCardClone(template, product);
-    container.appendChild(clone);
-  });
+  try {
+    const products = await getProducts();
+    products.forEach(product => {
+      const clone = createCardClone(template, product);
+      container.appendChild(clone);
+    });
+  } catch (error) {
+    window.location.href = '/fallback.html';
+  }
 });
