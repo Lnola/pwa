@@ -16,12 +16,14 @@ document.addEventListener('DOMContentLoaded', async () => {
   const container = document.getElementById('card-container');
 
   try {
+    console.log(products);
     const products = await getProducts();
     products.forEach(product => {
       const clone = createCardClone(template, product);
       container.appendChild(clone);
     });
   } catch (error) {
+    console.log('redirecting');
     window.location.href = '/fallback.html';
   }
 });
