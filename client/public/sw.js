@@ -2,7 +2,7 @@ const STATIC_CACHE_NAME = 'site-static-v2';
 const DYNAMIC_CACHE_NAME = 'site-dynamic-v2';
 const FALLBACK_PAGE = '/fallback.html';
 const STATIC_ASSETS = [
-  '',
+  '/',
   '/index.html',
   '/assets/css/layout.css',
   '/assets/css/products.css',
