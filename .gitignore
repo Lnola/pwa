@@ -13,3 +13,5 @@ vite.config.js
 certificates
 
 favicon.ico
+
+dist
