@@ -4,6 +4,8 @@ const FALLBACK_PAGE = '/fallback.html';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
+  'favicon.ico',
+  '/manifest.json',
   '/assets/css/layout.css',
   '/assets/css/products.css',
   '/scripts/index.js',
