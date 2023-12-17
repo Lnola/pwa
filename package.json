@@ -1,0 +1,13 @@
+{
+  "name": "vite-project",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "serve": "vite --host",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "vite": "^5.0.8"
+  }
+}
