@@ -1,14 +1,14 @@
 const STATIC_CACHE_NAME = 'site-static-v2';
 const DYNAMIC_CACHE_NAME = 'site-dynamic-v2';
-const FALLBACK_PAGE = '/client/fallback.html';
+const FALLBACK_PAGE = '/fallback.html';
 const STATIC_ASSETS = [
-  '/client',
-  '/client/index.html',
-  '/client/assets/css/layout.css',
-  '/client/assets/css/products.css',
-  '/client/scripts/index.js',
-  '/client/scripts/layout.js',
-  '/client/scripts/products.js',
+  '',
+  '/index.html',
+  '/assets/css/layout.css',
+  '/assets/css/products.css',
+  '/scripts/index.js',
+  '/scripts/layout.js',
+  '/scripts/products.js',
   'https://fonts.googleapis.com/icon?family=Material+Icons',
   'https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css',
   'https://fonts.gstatic.com/s/materialicons/v140/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2',
