@@ -17,13 +17,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   try {
     const products = await getProducts();
-    console.log(products);
     products.forEach(product => {
       const clone = createCardClone(template, product);
       container.appendChild(clone);
     });
   } catch (error) {
-    console.log('redirecting');
     window.location.href = '/fallback.html';
   }
 });

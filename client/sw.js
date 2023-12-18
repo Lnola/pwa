@@ -25,12 +25,6 @@ self.addEventListener('install', event => {
       return cache.addAll(STATIC_ASSETS);
     })(),
   );
-
-  (async () => {
-    const products = await fetch('https://fakestoreapi.com/products');
-    const cache = await caches.open(DYNAMIC_CACHE_NAME);
-    cache.put('/products', products);
-  })();
 });
 
 self.addEventListener('activate', event => {
