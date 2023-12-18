@@ -1,7 +1,7 @@
 import { del, entries as getEntries } from 'https://cdn.jsdelivr.net/npm/idb-keyval@6/+esm';
 
-const STATIC_CACHE_NAME = 'site-static-v10';
-const DYNAMIC_CACHE_NAME = 'site-dynamic-v10';
+const STATIC_CACHE_NAME = 'site-static-v11';
+const DYNAMIC_CACHE_NAME = 'site-dynamic-v11';
 const FALLBACK_PAGE = '/fallback.html';
 const STATIC_ASSETS = [
   '/',
