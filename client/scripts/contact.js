@@ -3,10 +3,14 @@ import { set } from 'https://cdn.jsdelivr.net/npm/idb-keyval@6/+esm';
 const SYNC_TAG = 'sync-tag';
 
 const requestNotificationPermission = () => {
-  Notification.requestPermission().then(permission => {
-    if (permission === 'granted') return console.log('Notification permission granted.');
-    return console.log('Notification permission denied.');
-  });
+  if ('Notification' in window) {
+    Notification.requestPermission().then(permission => {
+      if (permission === 'granted') return console.log('Notification permission granted.');
+      return console.log('Notification permission denied.');
+    });
+  } else {
+    alert('Your browser doesnt support notifications!');
+  }
 };
 
 const button = document.querySelector('#sync');
@@ -20,7 +24,7 @@ button.addEventListener('click', async () => {
     serviceWorkerRegistration.sync.register(SYNC_TAG);
     console.log('Sync set!');
   } else {
-    alert('Vas preglednik ne podrzava background sync!');
+    alert('Your browser doesnt support background sync!');
   }
 });
 
