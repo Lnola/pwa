@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   const container = document.getElementById('card-container');
 
   try {
-    console.log(products);
     const products = await getProducts();
+    console.log(products);
     products.forEach(product => {
       const clone = createCardClone(template, product);
       container.appendChild(clone);
