@@ -80,6 +80,16 @@ async function createSubscription(data) {
   }
 }
 
+function createNotification(isSuccessful) {
+  if (Notification.permission === 'granted') {
+    const body = isSuccessful
+      ? 'Your subscription has been successfully synced.'
+      : 'Subscription sync failed. Please try again.';
+    const icon = '/favicon.ico';
+    self.registration.showNotification('Subscription Sync Status', { body, icon });
+  }
+}
+
 self.addEventListener('sync', event => {
   if (event.tag !== SYNC_TAG) return;
   console.log(`Sync event "${event.tag}" recieved!`);
@@ -89,6 +99,7 @@ self.addEventListener('sync', event => {
       for (const [id, data] of entries) {
         const isSuccessful = await createSubscription(data);
         if (isSuccessful) del(id);
+        createNotification(isSuccessful);
       }
     })(),
   );
