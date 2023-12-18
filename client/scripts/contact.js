@@ -2,6 +2,13 @@ import { set } from 'https://cdn.jsdelivr.net/npm/idb-keyval@6/+esm';
 
 const SYNC_TAG = 'sync-tag';
 
+const requestNotificationPermission = () => {
+  Notification.requestPermission().then(permission => {
+    if (permission === 'granted') return console.log('Notification permission granted.');
+    return console.log('Notification permission denied.');
+  });
+};
+
 const button = document.querySelector('#sync');
 button.addEventListener('click', async () => {
   if ('serviceWorker' in navigator && 'SyncManager' in window) {
@@ -16,3 +23,5 @@ button.addEventListener('click', async () => {
     alert('Vas preglednik ne podrzava background sync!');
   }
 });
+
+requestNotificationPermission();
