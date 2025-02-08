@@ -1,7 +1,5 @@
 # pwa
 
-Progressive web app built for FER web2 course - 2023/2024
-
 ### Running the app
 
 Since with service workers HTTPS is required a dev server can be spun up on localhost by running:
